@@ -18,6 +18,7 @@ include('./include/db_conn.php');
                 <th scope="col">ID</th>
                 <th scope="col">User Name</th>
                 <th scope="col">User Picture</th>
+                <th scope="col">operations</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,9 @@ include('./include/db_conn.php');
                             <a href="./upload_img.php?user_id=<?php echo $row['reg_id']; ?>">
                                 <img src="./images/user_image/<?php echo $row['user_pic']; ?>" alt="User Image" style="width: 50px; height: 50px;">
                             </a>
+                        </td>
+                        <td>
+                            <a href="./delete_user.php?delete_id=<?php echo $row['reg_id']; ?>">Delete</a>
                         </td>
                     </tr>
             <?php

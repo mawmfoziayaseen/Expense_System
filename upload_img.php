@@ -32,6 +32,7 @@ if (isset($_POST['submit'])) {
 
             if ($stmt->execute()) {
                 echo "Image uploaded successfully";
+                // header("Location: ./display_reg_users.php");
             } else {
                 echo "Failed to update the database";
             }
@@ -53,6 +54,7 @@ if (isset($_POST['submit'])) {
                 <input type="file" class="form-control" name="user_pic" required>
                 <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
                 <button type="submit" class="btn btn-primary w-100" name="submit">Upload</button>
+                
             </div>
         </form>
     </div>

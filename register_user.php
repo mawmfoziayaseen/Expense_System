@@ -19,6 +19,7 @@ if (isset($_POST['register'])) {
 
     if (mysqli_stmt_execute($stmt)) {
         my_alert("success", "New record created successfully");
+        header("Location: ./display_reg_users.php");
     } else {
         my_alert("danger", "Error while inserting the record");
     }
