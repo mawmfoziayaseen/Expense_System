@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
                 <input type="file" class="form-control" name="user_pic" required>
                 <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
                 <button type="submit" class="btn btn-primary w-100" name="submit">Upload</button>
-                
+
             </div>
         </form>
     </div>

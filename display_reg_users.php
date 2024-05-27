@@ -41,10 +41,10 @@ include('./include/db_conn.php');
                             <a href="./delete_user.php?delete_id=<?php echo $row['reg_id']; ?>">Delete</a>
                         </td>
                     </tr>
-            <?php
+                <?php
                 }
             } else {
-            ?>
+                ?>
                 <tr>
                     <td colspan="3">
                         <h3 class="text-danger text-center">No Records Found</h3>
