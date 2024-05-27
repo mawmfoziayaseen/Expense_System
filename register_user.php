@@ -8,23 +8,16 @@ if (isset($_POST['register'])) {
     // Getting values from HTML
     $user_name = $_POST['user_name'];
     $user_pass = $_POST['user_pass'];
-    
-    // Password hashing
-    $hashed_pass = password_hash($user_pass, PASSWORD_DEFAULT);
 
-    // Inserting the data into database using prepared statements
-    $sql = "INSERT INTO reg_users (user_name, user_pass) VALUES (?, ?)";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 'ss', $user_name, $hashed_pass);
+    // Inserting the data into the database
+    $sql = "INSERT INTO reg_users (user_name, user_pass) VALUES ('$user_name', '$user_pass')";
 
-    if (mysqli_stmt_execute($stmt)) {
+    if (mysqli_query($conn, $sql)) {
         my_alert("success", "New record created successfully");
-        header("Location: ./display_reg_users.php");
     } else {
-        my_alert("danger", "Error while inserting the record");
+        my_alert("danger", "Error while inserting the record: " . mysqli_error($conn));
     }
 
-    mysqli_stmt_close($stmt);
     mysqli_close($conn);
 }
 ?>

@@ -38,6 +38,8 @@ include('./include/db_conn.php');
                             </a>
                         </td>
                         <td>
+                            
+                            <a class="me-5"  href="./update_user_pass.php?update_pass_id=<?php echo $row['reg_id']; ?>">Set New Password</a>
                             <a href="./delete_user.php?delete_id=<?php echo $row['reg_id']; ?>">Delete</a>
                         </td>
                     </tr>
