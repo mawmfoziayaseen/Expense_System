@@ -33,26 +33,14 @@ include('./include/db_conn.php');
                         <td><?php echo $row['user_name']; ?></td>
                         <td>
                             <a href="./upload_img.php?user_id=<?php echo $row['reg_id']; ?>">
-                                <?php
-                                if ($row['user_pic'] == null) {
-                                ?>
-                                    <img src="./images/user_image/dummy.jpg " alt="User Image" style="width: 50px; height: 50px;">
-                                <?php
-
-                                } else {
-                                ?>
-                                    <img src="./images/user_image/dummy.jpg <?php echo $row['user_pic']; ?>" alt="User Image" style="width: 50px; height: 50px;">
-                                <?php
-
-                                }
-                                ?>
+                                <img src="./images/user_image/<?php echo $row['user_pic']; ?>" alt="User Image" style="width: 50px; height: 50px;">
                             </a>
                         </td>
                     </tr>
-                <?php
+            <?php
                 }
             } else {
-                ?>
+            ?>
                 <tr>
                     <td colspan="3">
                         <h3 class="text-danger text-center">No Records Found</h3>
