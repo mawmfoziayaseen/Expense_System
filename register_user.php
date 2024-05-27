@@ -1,60 +1,58 @@
 <?php
 include('./include/header.php');
 include('./include/function.php');
-include('./include/db_conn.php');
 
-$user_id = null; // Added missing semicolon
+if (isset($_POST['register'])) {
+    include('./include/db_conn.php');
 
-if (isset($_POST['user_id'])) {
-    $user_id = $_POST['user_id']; // Removed the dollar sign within the variable name
-}
+    // Getting values from HTML
+    $user_name = $_POST['user_name'];
+    $user_pass = $_POST['user_pass'];
+    
+    // Password hashing
+    $hashed_pass = password_hash($user_pass, PASSWORD_DEFAULT);
 
-if (isset($_POST['submit'])) {
-    $user_pic = $_FILES['user_pic'];
+    // Inserting the data into database using prepared statements
+    $sql = "INSERT INTO reg_users (user_name, user_pass) VALUES (?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, 'ss', $user_name, $hashed_pass);
 
-    $user_name = $user_pic['name'];
-    $img_temp_name = $user_pic['tmp_name'];
-
-    // Ensure the file is an image
-    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
-    $img_extension = strtolower(pathinfo($user_name, PATHINFO_EXTENSION));
-
-    if (in_array($img_extension, $allowed_extensions)) {
-        // Generate a new unique file name
-        $new_img_name = round(microtime(true)) . "." . $img_extension;
-        $img_path = "./images/user_image/" . $new_img_name;
-
-        // Move the uploaded file
-        if (move_uploaded_file($img_temp_name, $img_path)) {
-            // Use prepared statements to prevent SQL injection
-            $stmt = $conn->prepare("UPDATE reg_users SET user_pic=? WHERE reg_id=?");
-            $stmt->bind_param("si", $new_img_name, $user_id);
-
-            if ($stmt->execute()) {
-                echo "Image uploaded successfully";
-            } else {
-                echo "Failed to update the database";
-            }
-            $stmt->close();
-        } else {
-            echo "Failed to upload image on the server.";
-        }
+    if (mysqli_stmt_execute($stmt)) {
+        my_alert("success", "New record created successfully");
     } else {
-        echo "Invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed.";
+        my_alert("danger", "Error while inserting the record");
     }
+
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 }
 ?>
 
 <div class="container">
-    <div class="row py-5">
-        <h1 class="text-center py-3">Upload Image</h1>
-        <form method="POST" enctype="multipart/form-data">
-            <div class="col-md-6 mb-3 mx-auto">
-                <input type="file" class="form-control" name="user_pic" required>
-                <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
-                <button type="submit" class="btn btn-primary w-100" name="submit">Upload</button>
+    <!-- <h1 class="text-center">Expense Management System</h1> -->
+    <div class="card my-card">
+        <div class="card-header bg-primary text-white">
+            Register User
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="user_name" class="form-label">User Name</label>
+                            <input type="text" class="form-control" id="user_name" name="user_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user_pass" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="user_pass" name="user_pass" required>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary" name="register">Register</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
