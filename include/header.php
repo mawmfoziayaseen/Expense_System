@@ -13,4 +13,7 @@
     <title>PHP Project</title>
 </head>
 <body>
+  <?php include('./include/gen_navbar.php');
+
+  ?>
     

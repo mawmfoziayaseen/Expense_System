@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('./include/header.php');
 include('./include/function.php');
 
@@ -17,8 +18,15 @@ if (isset($_POST['login'])) {
         $row = mysqli_fetch_assoc($result_login_query);
         $db_user_name = $row['user_name'];
         $db_user_pass = $row['user_pass'];
+        $db_user_pic = $row['user_pic'];
 
         if ($user_pass === $db_user_pass) { // Use plain password comparison as per your requirement
+            $_SESSION['name'] = $db_user_name;
+            $_SESSION['picture'] = $db_user_pic;
+            $_SESSION['is_login'] = true;
+
+
+
             my_alert("success", "Login successfully");
             header("Location: ./index.php");
             exit(); // Ensure to exit after redirection
