@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg shadow bg-body-tertiary">
+<nav class="navbar navbar-expand-lg shadow bg-body-tertiary px-md-4">
   <div class="container-fluid">
     <a class="navbar-brand md-5" href="index.php">Expense</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,10 +20,19 @@
           </ul>
       
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <div>
+      <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <i class="bi fs-4 bi-person-circle me-3"></i><span>User Name</span>
+  </a>
+
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Profile</a></li>
+    <li><a class="dropdown-item" href="logout.php">Log out</a></li>
+   
+  </ul>
+</div>
+      </div>
     </div>
   </div>
 </nav>
