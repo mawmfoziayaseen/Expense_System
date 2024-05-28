@@ -24,9 +24,10 @@ if (isset($_REQUEST['update_pass_id'])) {
 if (isset($_REQUEST['update_pass'])) {
     // Remove the space before 'update_user_pass'
     $update_user_pass = $_REQUEST['update_user_pass'];
+    $enc_password = password_hash($update_user_pass,PASSWORD_BCRYPT);
 
     // Corrected variable name $_update_pass_id to $update_pass_id
-    $update_query = "UPDATE reg_users SET user_pass='$update_user_pass' WHERE reg_id=$update_pass_id";
+    $update_query = "UPDATE reg_users SET user_pass='$enc_password' WHERE reg_id=$update_pass_id";
     $run_update_query = mysqli_query($conn, $update_query);
 
     if ($run_update_query) {

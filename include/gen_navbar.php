@@ -16,14 +16,17 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="register_user.php">Add Users</a></li>
-          >
+            <li><a class="dropdown-item" href="display_reg_users.php">All Users</a></li>
+            
+            
+          
           </ul>
       
       </ul>
       <div>
       <div class="dropdown">
   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-  <i class="bi fs-4 bi-person-circle me-3"></i><span>User Name</span>
+  <i class="bi fs-4 bi-person-circle me-3"></i><span><?php echo ucfirst($_SESSION['name']); ?></span>
   </a>
 
   <ul class="dropdown-menu">
