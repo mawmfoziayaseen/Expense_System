@@ -14,7 +14,7 @@ include('./include/db_conn.php');
     </div>
     <table class="table table-bordered table-striped table-hover">
         <thead class="table-dark">
-            <tr>
+            <tr class="text-center">
                 <th scope="col">ID</th>
                 <th scope="col"> Name</th>
                 <th scope="col">Price</th>
@@ -37,7 +37,8 @@ include('./include/db_conn.php');
                         <td><?php echo $row['item_price'];?></td> <!-- this should be price -->
                         <td><?php echo $row['item_date'];?></td> <!-- this should be date -->
                         <td><?php echo $row['item_detail'];?></td>
-                        <td>
+                        <td class="d-flex justify-content-evenly">
+                        <a href="./edit_expense.php?edit_expense_id=<?php echo $row['item_id']; ?>">Edit</a>
                         <a href="./delete.expense.php?del_expense_id=<?php echo $row['item_id']; ?>">Delete</a>
                     </td>
                     </tr>
