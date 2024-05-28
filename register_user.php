@@ -27,7 +27,7 @@ if (isset($_POST['register'])) {
 
 <div class="container">
     <!-- <h1 class="text-center">Expense Management System</h1> -->
-    <div class="card my-card">
+    <div class="card " id="my-card">
         <div class="card-header bg-primary text-white">
             Register User
         </div>

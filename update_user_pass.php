@@ -41,7 +41,7 @@ mysqli_close($conn);
 ?>
 
 <div class="container">
-    <div class="card my-card">
+    <div class="card " id="my-card">
         <div class="card-header bg-primary text-white">
             Set New Password
         </div>

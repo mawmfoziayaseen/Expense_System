@@ -43,7 +43,7 @@ if (isset($_POST['login'])) {
 
 <div class="container">
     <!-- <h1 class="text-center">Expense Management System</h1> -->
-    <div class="card my-card">
+    <div class="card " id="my-card">
         <div class="card-header bg-primary text-white">
             Login Form
         </div>
