@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg shadow bg-body-tertiary px-md-4">
+<nav class="navbar navbar-expand-lg shadow bg-body-tertiary px-md-5">
   <div class="container-fluid">
     <a class="navbar-brand md-5" href="index.php">Expense</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,8 +15,8 @@
             Users
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="register_user.php">Add Users</a></li>
-            <li><a class="dropdown-item" href="display_reg_users.php">All Users</a></li>
+            <li><a class="dropdown-item" href="add_expense.php">Add Expense</a></li>
+            <li><a class="dropdown-item" href="all_expense.php">All Expense</a></li>
             
             
           
