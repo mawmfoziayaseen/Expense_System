@@ -8,8 +8,6 @@ check_user();
 ?>
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-
 <div class="container py-5">
     <div class="row  py-3">
         <div class="col-xl-6 col-lg-6">
@@ -34,6 +32,7 @@ check_user();
             </div>
         </div>
         <div class="col-xl-6 col-lg-6">
+            <a href="display_reg_users.php">
             <div class="card l-bg-blue-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
@@ -57,6 +56,7 @@ check_user();
                     
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-xl-6 col-lg-6">
             <div class="card l-bg-green-dark">
